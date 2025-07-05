@@ -1,0 +1,8 @@
+{
+  "name": "Copy of Gym Max",
+  "description": "Gym Max copy\n",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "prompt": ""
+}

@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles */
+
+html {
+  @apply bg-zinc-950 text-zinc-100 transition-colors duration-300;
+}
+html.light {
+  @apply bg-zinc-50 text-zinc-900;
+}
+html.dark {
+  @apply bg-zinc-950 text-zinc-100;
+}
+
+body {
+  @apply min-h-screen bg-inherit text-inherit;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(39, 39, 42, 0.5); /* zinc-800 with opacity */
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #7c3aed; /* violet-600 */
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #8b5cf6; /* violet-500 */
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+.animate-fade-in-scale {
+  animation: fadeInScale 0.5s ease-in-out forwards;
+}
+
+/* Oculta cualquier botón flotante '+' residual de versiones anteriores */
+button.fixed.bottom-6.right-6[aria-label*="Crear nueva rutina"] {
+  display: none !important;
+}
+
+/* --- OPTIMIZACIÓN VISUAL MOBILE: menos bordes, más aire --- */
+@media (max-width: 767px) {
+  .rounded-xl, .rounded-2xl, .rounded-3xl, .rounded-lg {
+    border-radius: 1.1rem !important;
+  }
+  .border, .border-zinc-700, .border-zinc-800, .border-zinc-900, .border-violet-800, .border-violet-500, .border-sky-500, .border-slate-700 {
+    border-width: 0 !important;
+  }
+  .shadow, .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl, .shadow-2xl {
+    box-shadow: none !important;
+  }
+  .bg-zinc-900, .bg-zinc-900\/40, .bg-zinc-900\/50, .bg-zinc-900\/60, .bg-zinc-950, .bg-zinc-950\/80 {
+    background-color: rgba(24,24,27,0.92) !important;
+  }
+  .p-4, .p-5, .p-6, .p-8, .py-10, .py-20 {
+    padding: 1.2rem !important;
+  }
+  .gap-4, .gap-6, .gap-8 {
+    gap: 0.8rem !important;
+  }
+  /* Inputs y selects: sin borde, más aire */
+  input, select, textarea {
+    border-width: 0 !important;
+    border-radius: 1.1rem !important;
+    background-color: #18181b !important;
+    box-shadow: none !important;
+  }
+  /* Cards y modales: sin borde, más padding */
+  .card, .modal, .rounded-3xl {
+    border-width: 0 !important;
+    box-shadow: none !important;
+    padding: 1.2rem !important;
+  }
+}
