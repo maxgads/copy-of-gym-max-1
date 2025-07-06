@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import firebase from 'firebase/compat/app';
+import { User } from 'firebase/auth';
 import * as nutritionService from '../../services/nutritionService';
 import * as profileService from '../../services/profileService';
 import { FoodEntry, MealType, AppView, FoodFormData, UserProfileData } from '../../types';
@@ -175,7 +175,7 @@ const FoodItemModern: React.FC<FoodItemModernProps> = React.memo(({ food, onEdit
 
 
 interface FoodLoggerViewProps {
-  currentUser: firebase.User | null;
+  currentUser: User | null;
   navigateTo: (view: AppView) => void;
   showToast: (message: string) => void;
 }

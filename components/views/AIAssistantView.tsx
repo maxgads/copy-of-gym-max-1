@@ -1,8 +1,5 @@
-
-
-
 import React, { useState, useEffect, useRef } from 'react';
-import firebase from 'firebase/compat/app';
+import { User } from 'firebase/auth';
 import { getFitnessAdviceStream, parseRoutineFromFileContent } from '../../services/geminiService';
 import * as routineService from '../../services/routineService';
 import { ChatMessage } from '../../types';
@@ -34,10 +31,10 @@ const LoadingSpinner: React.FC<{ size?: 'sm' | 'md' | 'lg', color?: string }> = 
 };
 
 const CameraIcon = ({className = "w-5 h-5"}) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>;
-const RecipeBookIcon = ({className = "w-5 h-5"}) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>;
+const RecipeBookIcon = ({className = "w-5 h-5"}) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>;
 
 interface AIAssistantViewProps {
-  currentUser: firebase.User; 
+  currentUser: User; 
   showToast: (message: string) => void;
 }
 

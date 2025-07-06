@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import firebase from 'firebase/compat/app';
+import { User } from 'firebase/auth';
 import { SavedRecipe, AppView, MealType, FoodFormData } from '../../types';
 import * as recipeBookService from '../../services/recipeBookService';
 import * as nutritionService from '../../services/nutritionService';
@@ -13,7 +13,7 @@ const ChevronDownIcon = ({ className }: { className?: string }) => <svg classNam
 const BookIcon = ({ className }: { className?: string }) => <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20v2H6.5a2.5 2.5 0 0 1 0-5H20V4H6.5A2.5 2.5 0 0 0 4 6.5v13z" /></svg>;
 
 interface RecipeBookViewProps {
-  currentUser: firebase.User;
+  currentUser: User;
   navigateTo: (view: AppView) => void;
 }
 
